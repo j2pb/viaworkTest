@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell, faSearch, faEnvelope, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+//components
+import SearchForm from './components/SearchForm'
+import Menu from './components/navbarMenu/Menu'
 
 class NavBar extends Component {
 
@@ -14,45 +15,8 @@ class NavBar extends Component {
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarText">
-                        <form className="form-inline my-2 my-lg-0 ml-auto">
-                            <div className="input-group">
-                                <input type="text" className="form-control searchbox" aria-label="" placeholder="Search for..." />
-
-                                <div className="input-group-append">
-                                    <span className="input-group-text">
-                                        <FontAwesomeIcon icon={faSearch} />
-                                    </span>
-                                </div>
-                                <div className="autocomplete">
-
-                                </div>
-                            </div>
-                        </form>
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    <span className="fa-layers fa-fw">
-                                        <FontAwesomeIcon className="fas fa-lg" icon={faBell} />
-                                        <span className="fa-layers-counter">9+</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    <span className="fa-layers fa-fw">
-                                        <FontAwesomeIcon className="fas fa-lg" icon={faEnvelope} />
-                                        <span className="fa-layers-counter">7</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    <span className="fa-layers fa-fw">
-                                        <FontAwesomeIcon className="fas fa-lg" icon={faUserCircle} />
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
+                        <SearchForm />
+                        <Menu />
                     </div>
                 </nav>
             </header>
