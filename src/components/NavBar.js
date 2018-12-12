@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //components
-import SearchForm from './components/SearchForm'
-import Menu from './components/navbarMenu/Menu'
+import SearchForm from './SearchForm'
+import Menu from './navbarMenu/Menu'
 
 class NavBar extends Component {
 

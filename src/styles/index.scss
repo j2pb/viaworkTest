@@ -13,7 +13,7 @@ background-color: $bg-light !important;
 } 
 
 .navbar-brand{
-  color:$color-navbar-brand;
+  color:$color-navbar-brand !important;
   &:hover{
     color:darken($color-navbar-brand, 10)
   }

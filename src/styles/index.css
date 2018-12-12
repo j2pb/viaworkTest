@@ -6320,7 +6320,7 @@ body {
   background-color: #31353a !important; }
 
 .navbar-brand {
-  color: #fff; }
+  color: #fff !important; }
   .navbar-brand:hover {
     color: #e6e6e6; }
 
