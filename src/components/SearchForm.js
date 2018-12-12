@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 //utils
-import { getAutocomplete } from '../utils/api'
+import { getJobsAutocomplete, getJobDetail } from '../utils/api'
 class SearchForm extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +22,7 @@ class SearchForm extends Component {
     inputChangesHandler(event) {
         let self = this;
         if (event.target.value.length >= 1) {
-            getAutocomplete(event.target.value)
+            getJobsAutocomplete(event.target.value)
                 .then(response => {
                     this.setState({ autocomplete: response.data })
                 })
@@ -33,6 +33,19 @@ class SearchForm extends Component {
             this.resetAutocomplete();
         }
     }
+    handleItemClick(parent_uuid, jobTitle) {
+        getJobDetail(parent_uuid)
+            .then(response => {
+                console.log("*************************************************************")
+                console.log("Job clicked -------------> ", jobTitle)
+                console.log("Title       -------------> ", response.data.title)
+                console.log("Description -------------> ", response.data.description)
+                console.log("*************************************************************")
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
     render() {
         let autocomplete = null;
         let nResults = 10;
@@ -42,14 +55,14 @@ class SearchForm extends Component {
                     const length = 32;
                     let trimmedString = item.suggestion.substring(0, length);
                     let ellipsis = (item.suggestion.length > length ? '...' : '');
-                    return <a className="dropdown-item" key={item.uuid} href="#" alt={item.suggestion}>
+                    return <a onClick={() => this.handleItemClick(item.parent_uuid, item.suggestion)} className="dropdown-item" key={item.uuid} href="#" alt={item.suggestion}>
                         {trimmedString}{ellipsis}
                     </a>
                 })
             )
         }
         return (
-            <form className="form-inline my-2 my-lg-0 ml-auto">
+            <form className="form-inline my-2 my-lg-0 ml-auto" onSubmit={e => { e.preventDefault(); }}>
                 <div className="input-group">
                     <input type="text" className="form-control searchbox" aria-label="" placeholder="Search for..."
                         onChange={(event) => this.inputChangesHandler(event)}
