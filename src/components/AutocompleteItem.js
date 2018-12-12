@@ -49,27 +49,7 @@ class SearchForm extends Component {
             )
         }
         return (
-            <form className="form-inline my-2 my-lg-0 ml-auto">
-                <div className="input-group">
-                    <input type="text" className="form-control searchbox" aria-label="" placeholder="Search for..."
-                        onChange={(event) => this.inputChangesHandler(event)}
-                        onFocus={(event) => this.onFocus(event, this.inputField)}
-                        ref={input => this.inputField = input}
-
-                    />
-                    <div className="input-group-append">
-                        <span className="input-group-text">
-                            <FontAwesomeIcon icon={faSearch} />
-                        </span>
-                    </div>
-                </div>
-
-                <div className="autocomplete">
-                    <div className={'dropdown-menu text-truncate ' + (this.state.autocomplete.length >= 1 ? 'show' : '')}>
-                        {autocomplete}
-                    </div>
-                </div>
-            </form>
+            { autocomplete }
         );
     }
 }

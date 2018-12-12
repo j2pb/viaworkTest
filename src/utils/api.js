@@ -1,6 +1,6 @@
 import axios from 'axios'
 import config from "../config";
 
-export function getOrder(orderId) {
-    return axios.get(config.apiBaseUrl + 'getorder/' + orderId);
+export function getAutocomplete(contains) {
+    return axios.get(config.apiBaseUrl + '/jobs/autocomplete?contains=' + contains);
 }

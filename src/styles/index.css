@@ -6343,10 +6343,9 @@ body {
   transform: scale(0.65); }
 
 .autocomplete {
+  position: absolute;
   box-sizing: border-box;
-  width: 100%;
-  border: 1px solid #cccccc;
-  display: none; }
+  top: 50px; }
 
 .autocomplete.active {
   display: initial; }

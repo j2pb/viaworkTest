@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-
 //components
 import TitleConfig from './TitleConfig'
 import NavBar from './NavBar'
