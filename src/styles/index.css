@@ -6336,11 +6336,25 @@ body {
 .input-group-text {
   border: none; }
 
-.searchbox {
-  -webkit-transition: width 1s ease-in-out;
-  -moz-transition: width 1s ease-in-out;
-  -o-transition: width 1s ease-in-out;
-  transition: width 1s ease-in-out; }
+.fa-layers-counter {
+  top: -5px;
+  right: -5px;
+  -webkit-transform: scale(0.65);
+  transform: scale(0.65); }
 
-.searchbox:focus {
-  flex: 2; }
+.autocomplete {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #cccccc;
+  display: none; }
+
+.autocomplete.active {
+  display: initial; }
+
+.navbar-toggler {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.1); }
+
+.navbar-toggler-icon {
+  color: red;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
