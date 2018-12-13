@@ -68,7 +68,6 @@ class SearchForm extends Component {
                         onChange={(event) => this.inputChangesHandler(event)}
                         onFocus={(event) => this.onFocus(event, this.inputField)}
                         ref={input => this.inputField = input}
-
                     />
                     <div className="input-group-append">
                         <span className="input-group-text">
