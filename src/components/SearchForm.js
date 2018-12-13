@@ -4,6 +4,11 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 //utils
 import { getJobsAutocomplete, getJobDetail } from '../utils/api'
+
+
+import { connect } from 'react-redux';
+import { lastClickedAction } from '../actions/actions'
+
 class SearchForm extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +45,8 @@ class SearchForm extends Component {
                 console.log("Job clicked -------------> ", jobTitle)
                 console.log("Title       -------------> ", response.data.title)
                 console.log("Description -------------> ", response.data.description)
-                console.log("*************************************************************")
+                console.log("*************************************************************");
+                this.props.lastClickedAction(response.data);
             })
             .catch(function (error) {
                 console.log(error)
@@ -81,9 +87,16 @@ class SearchForm extends Component {
                         {autocomplete}
                     </div>
                 </div>
+
+
             </form>
         );
     }
 }
-
-export default SearchForm;
+const mapStateToProps = state => ({
+    ...state
+})
+const mapDispatchToProps = dispatch => ({
+    lastClickedAction: (clicked) => dispatch(lastClickedAction(clicked))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
