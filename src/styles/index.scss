@@ -47,19 +47,22 @@ background-color: $bg-light !important;
 display: initial
 }
 // .searchbox {
+//   position: relative; top: 0; left: 0;
+
 //   width: 100px;
+
 //   -webkit-transition: all 1s ease-in-out;
 //     -moz-transition:all 1s ease-in-out;
 //     -o-transition: all 1s ease-in-out;
 //     transition: all 1s ease-in-out;
-    
-    
-
 // }
 // .searchbox:focus{
+//   right:100%;
+//   max-width: 200px;
+//   min-width: 200px;
 //   width: 200px;
-//   -webkit-transform: translateX(10%);
-//     transform: translateX(10%);
+//   -webkit-transform: translateX(-100%);
+//     transform: translateX(-100%);
 // }
 .navbar-toggler {
   color: rgba(255,255,255,.5);

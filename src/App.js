@@ -16,7 +16,6 @@ class App extends Component {
             <li className="list-group-item">{this.props.reducer.result.description}</li>
           </ul>
         </div>
-
     }
 
     return (
@@ -24,22 +23,14 @@ class App extends Component {
         <TitleConfig />
         <NavBar />
 
-        <div class="container">
-          <div class="row justify-content-md-center">
-            <div class="col col-lg-4">
-
-            </div>
-            <div class="col-md-auto">
+        <div className="container">
+          <div className="row justify-content-md-center">
+            <div className="col-md-auto">
               {lastClicked}
             </div>
-            <div class="col col-lg-4">
-
-            </div>
-
-
           </div>
         </div>
-      </div >
+      </div>
     );
   }
 }
