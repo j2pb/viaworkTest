@@ -7,25 +7,28 @@ import { connect } from 'react-redux';
 class App extends Component {
   render() {
     let lastClicked = null;
-    if (this.props.reducer.result) {
-      lastClicked =
-        <div className="card">
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">{this.props.reducer.result.uuid}</li>
-            <li className="list-group-item">{this.props.reducer.result.title}</li>
-            <li className="list-group-item">{this.props.reducer.result.description}</li>
-          </ul>
-        </div>
+    if (this.props.reducer) {
+      lastClicked = (
+        this.props.reducer.map((item, index) => {
+          return <div className="card  mb-3" key={index}>
+            <ul className="list-group list-group-flush" >
+              <li className="list-group-item text-center"><strong>{item.jobTitle}</strong></li>
+              <li className="list-group-item"><strong>uuid:</strong> {item.uuid}</li>
+              <li className="list-group-item"><strong>title:</strong> {item.title}</li>
+              <li className="list-group-item"><strong>description:</strong> {item.description}</li>
+            </ul>
+          </div>
+        })
+      )
     }
 
     return (
-      <div className="App">
+      <div className="App" >
         <TitleConfig />
         <NavBar />
-
         <div className="container">
           <div className="row justify-content-md-center">
-            <div className="col-md-auto">
+            <div className="col-md-6 mt-3">
               {lastClicked}
             </div>
           </div>

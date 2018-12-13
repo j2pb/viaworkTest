@@ -1,6 +1,6 @@
-export const lastClickedAction = (eu) => dispatch => {
+export const lastClickedAction = (payload) => dispatch => {
     dispatch({
         type: 'LAST_CLICKED',
-        payload: eu
+        payload: payload
     })
 }

@@ -8,7 +8,7 @@ import { getJobsAutocomplete, getJobDetail } from '../utils/api'
 
 import { connect } from 'react-redux';
 import { lastClickedAction } from '../actions/actions'
-
+import { Input } from './Animations'
 class SearchForm extends Component {
     constructor(props) {
         super(props);
@@ -46,6 +46,7 @@ class SearchForm extends Component {
                 console.log("Title       -------------> ", response.data.title)
                 console.log("Description -------------> ", response.data.description)
                 console.log("*************************************************************");
+                response.data.jobTitle = jobTitle;
                 this.props.lastClickedAction(response.data);
             })
             .catch(function (error) {
@@ -70,7 +71,7 @@ class SearchForm extends Component {
         return (
             <form className="form-inline my-2 my-lg-0 ml-auto" onSubmit={e => { e.preventDefault(); }}>
                 <div className="input-group">
-                    <input type="text" className="form-control searchbox" aria-label="" placeholder="Search for..."
+                    <Input type="text" className="form-control searchbox" aria-label="" placeholder="Search for..."
                         onChange={(event) => this.inputChangesHandler(event)}
                         onFocus={(event) => this.onFocus(event, this.inputField)}
                         ref={input => this.inputField = input}
@@ -83,12 +84,10 @@ class SearchForm extends Component {
                 </div>
 
                 <div className="autocomplete">
-                    <div className={'dropdown-menu text-truncate ' + (this.state.autocomplete.length >= 1 ? 'show' : '')}>
+                    <div ref={this.setWrapperRef} className={'dropdown-menu text-truncate ' + (this.state.autocomplete.length >= 1 ? 'show' : '')}>
                         {autocomplete}
                     </div>
                 </div>
-
-
             </form>
         );
     }

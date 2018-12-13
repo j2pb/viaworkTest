@@ -1,9 +1,10 @@
-export default (state = {}, action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case 'LAST_CLICKED':
-            return {
-                result: action.payload
-            }
+            return [
+                action.payload,
+                ...state
+            ]
         default:
             return state
     }
